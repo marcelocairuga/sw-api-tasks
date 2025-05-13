@@ -20,7 +20,7 @@ export function generateToken(user: User): string {
    );
 }
 
-export function verifyToken(token: string): JwtPayload | string {
+export function verifyToken(token: string): JwtPayload {
    const JWT_SECRET = process.env.JWT_SECRET || "";
-   return jwt.verify(token, JWT_SECRET);
+   return jwt.verify(token, JWT_SECRET) as JwtPayload;
 }
