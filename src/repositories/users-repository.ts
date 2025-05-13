@@ -31,7 +31,7 @@ export class UsersRepository {
       return UsersRepository.users.find(user => user.email === email);
    }
 
-   async update(id: string, updatedData: Omit<User, 'id'>): Promise<User> {
+   async update(id: string, updatedData: Partial<User>): Promise<User> {
       const user = await this.findById(id);
       if (!user) throw new NotFoundError("User not found.");
 
